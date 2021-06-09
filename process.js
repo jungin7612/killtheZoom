@@ -4,14 +4,25 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("수업 종료 뒤에 몇 분 후에 줌을 Kill하시겠습니까?? ", (minutes) => {
-  const settingMinutes = minutes;
-  console.log(`수업 시간 종료 후 줌 Kill : ${minutes}분 후`);
+rl.question(
+  "수업 종료 뒤에 몇 분 후에 줌을 Kill하시겠습니까?? (0 <= n < 5, n은 정수) ",
+  (minutes) => {
+    const settingMinutes = parseInt(minutes);
+    console.log(settingMinutes);
+    if (settingMinutes >= 5 || settingMinutes < 0 || isNaN(settingMinutes)) {
+      console.log(`잘못된 입력 : ${minutes}`);
+      setTimeout(() => {
+        process.exit(1);
+      }, 1000);
+    } else {
+      console.log(`수업 시간 종료 후 줌 Kill : ${settingMinutes}분 후`);
 
-  setInterval(() => {
-    scanDate(settingMinutes);
-  }, 10000);
-});
+      setInterval(() => {
+        scanDate(settingMinutes);
+      }, 10000);
+    }
+  }
+);
 
 const child_process = require("child_process");
 const killzoom = () => {
@@ -36,13 +47,14 @@ const scanDate = (settingMinutes) => {
     console.log("아직 수업시간이 아닙니다.");
     setTimeout(() => {
       process.exit(1);
-    }, 2000);
+    }, 1000);
   } else if (data.hours >= 8 && data.hours < 13) {
     if (data.minutes >= 50 + settingMinutes && data.minutes < 55) {
       try {
         killzoom();
       } catch (err) {
         console.log("zoom이 이미 꺼졌습니다");
+        sleep(600000);
       }
     }
   } else if (data.hours >= 13 && data.hours <= 16) {
@@ -51,7 +63,13 @@ const scanDate = (settingMinutes) => {
         killzoom();
       } catch (err) {
         console.log("zoom이 이미 꺼졌습니다");
+        sleep(600000);
       }
     }
   }
 };
+
+function sleep(ms) {
+  const wakeUpTime = Date.now() + ms;
+  while (Date.now() < wakeUpTime) {}
+}
