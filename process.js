@@ -58,7 +58,6 @@ const scanDate = (settingMinutes) => {
         killzoom();
       } catch (err) {
         console.log("zoom이 이미 꺼졌습니다");
-        sleep(600000);
       }
     }
   } else if (data.hours >= 13 && data.hours <= 16) {
@@ -67,13 +66,7 @@ const scanDate = (settingMinutes) => {
         killzoom();
       } catch (err) {
         console.log("zoom이 이미 꺼졌습니다");
-        sleep(600000);
       }
     }
   }
 };
-
-function sleep(ms) {
-  const wakeUpTime = Date.now() + ms;
-  while (Date.now() < wakeUpTime) {}
-}
