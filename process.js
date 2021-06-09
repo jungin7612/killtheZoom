@@ -32,9 +32,11 @@ const clock = () => {
 const scanDate = (settingMinutes) => {
   const data = clock();
 
-  if (data.hours < 8 || data.hours > 20) {
+  if (data.hours < 8 || data.hours > 16) {
     console.log("아직 수업시간이 아닙니다.");
-    process.exit(1);
+    setTimeout(() => {
+      process.exit(1);
+    }, 2000);
   } else if (data.hours >= 8 && data.hours < 13) {
     if (data.minutes >= 50 + settingMinutes && data.minutes < 55) {
       try {
@@ -43,8 +45,8 @@ const scanDate = (settingMinutes) => {
         console.log("zoom이 이미 꺼졌습니다");
       }
     }
-  } else if (data.hours >= 13 && data.hours <= 19) {
-    if (data.minutes >= 0 + settingMinutes && data.minutes < 45) {
+  } else if (data.hours >= 13 && data.hours <= 16) {
+    if (data.minutes >= 40 + settingMinutes && data.minutes < 45) {
       try {
         killzoom();
       } catch (err) {
