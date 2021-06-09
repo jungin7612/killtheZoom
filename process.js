@@ -26,7 +26,11 @@ rl.question(
 
 const child_process = require("child_process");
 const killzoom = () => {
-  child_process.execSync("powershell.exe -c 'taskkill /f /im Zoom.exe'");
+  try {
+    child_process.execSync("powershell.exe -c 'taskkill /f /im Zoom.exe'");
+  } catch (error) {
+    child_process.execSync("pkill 'zoom'");
+  }
 };
 const clock = () => {
   let today = new Date();
