@@ -19,17 +19,13 @@ const scanDate = () => {
   const data = clock();
 
   if (data.hours < 8 || data.hours > 16) {
-    console.log("아직 때가 아닙니다");
-    process.exit(1);
   } else if (data.hours >= 8 && data.hours < 13) {
     if (data.minutes >= 52 && data.minutes < 55) {
       killzoom();
-      process.exit(1);
     }
   } else if (data.hours >= 13 && data.hours <= 16) {
     if (data.minutes >= 43 && data.minutes < 45) {
       killzoom();
-      process.exit(1);
     }
   }
 };
