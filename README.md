@@ -7,4 +7,9 @@
 ## Usage
 > 주의 : 수업시간이 아니거나 잘못된 입력을 넣으면 자동으로 꺼집니다 !
 
-**그냥 OS에 맞는 파일을 다운 받고 수업시간이 되면 파일을 더블클릭하고 켜놓아주세요 💨**
+**소스 코드를 다운 받고 powershell에서 실행시켜주세요 for win 💨**<br>
+``` npm install ``` <br>
+``` node process.js ```  <br>
+
+**그냥 파일을 다운받고 터미널에서 실행시켜주세요 for macos or linux(wsl)** <br>
+ ``` ./process-macos ``` or ``` ./process-linux ```
