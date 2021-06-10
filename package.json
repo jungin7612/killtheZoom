@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "child_process": "^1.0.2",
-    "find-process": "^1.4.4",
-    "ps-node": "^0.1.6"
+    "child_process": "^1.0.2"
   }
 }

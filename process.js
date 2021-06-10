@@ -26,7 +26,7 @@ rl.question(
 const child_process = require("child_process");
 const killzoom = () => {
   try {
-    child_process.execSync("powershell.exe -c 'taskkill /f /im Zoom.exe'");
+    child_process.execSync("taskkill /f /im Zoom.exe");
   } catch (error) {
     child_process.execSync("pkill 'zoom'");
   }
