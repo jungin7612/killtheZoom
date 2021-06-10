@@ -5,10 +5,9 @@ const rl = readline.createInterface({
 });
 
 rl.question(
-  "수업 종료 뒤에 몇 분 후에 줌을 Kill하시겠습니까?? (0 <= n < 5, n은 정수) ",
+  "수업 종료 뒤 몇 분 후에 줌을 Kill하시겠습니까?? (0 <= n < 5, n은 정수) ",
   (minutes) => {
     const settingMinutes = parseInt(minutes);
-    console.log(settingMinutes);
     if (settingMinutes >= 5 || settingMinutes < 0 || isNaN(settingMinutes)) {
       console.log(`잘못된 입력 : ${minutes}`);
       setTimeout(() => {
