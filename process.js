@@ -27,8 +27,15 @@ const child_process = require("child_process");
 const killzoom = () => {
   try {
     child_process.execSync("taskkill /f /im Zoom.exe");
+    console.log("줌 Kill 완료 !");
   } catch (error) {
-    child_process.execSync("pkill 'zoom'");
+    try {
+      child_process.execSync("powershell.exe 'taskkill /f /im Zoom.exe'");
+      console.log("줌 Kill 완료 !");
+    } catch (err) {
+      child_process.execSync("pkill 'zoom'");
+      console.log("줌 Kill 완료 !");
+    }
   }
 };
 const clock = () => {
@@ -46,7 +53,7 @@ const clock = () => {
 const scanDate = (settingMinutes) => {
   const data = clock();
 
-  if (data.hours < 8 || data.hours > 16) {
+  if (data.hours < 8 || data.hours > 19) {
     console.log("아직 수업시간이 아닙니다.");
     setTimeout(() => {
       process.exit(1);
@@ -59,8 +66,8 @@ const scanDate = (settingMinutes) => {
         console.log("zoom이 이미 꺼졌습니다");
       }
     }
-  } else if (data.hours >= 13 && data.hours <= 16) {
-    if (data.minutes >= 40 + settingMinutes && data.minutes < 45) {
+  } else if (data.hours >= 13 && data.hours <= 19) {
+    if (data.minutes >= 0 + settingMinutes && data.minutes < 45) {
       try {
         killzoom();
       } catch (err) {
