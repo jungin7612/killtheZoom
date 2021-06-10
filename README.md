@@ -7,10 +7,12 @@
 ## Usage
 > 주의 : 수업시간이 아니거나 잘못된 입력을 넣으면 자동으로 꺼집니다 !
 
-**소스 코드를 다운 받고 powershell에서 실행시켜주세요 for win(nodejs 필요) 💨** <br>
-windows powerShell 실행 -> cd "압축 푼 폴더 파일 위치" <br>
-``` npm install ``` <br>
-``` node process.js ```  <br> <br>
+**Window 실행 방법** <br>
+* 주의 node.js 설치 필요 *
+1. 상단의 초록색 'Code' 버튼 클릭 후 'Dowoload ZIP' 클릭 후 소스코드 다운로드
+2. terminal(powershell 추천) 실행 후 해당 소스코드의 폴더 directory로 이동(cd "소스코드 폴더 위치")
+3. ```node process.js``` 명령어 실행
+4. 이후 터미널의 cli를 지시사항 이행
 
 **Mac & Linux 실행 방법 (for macos or linux(wsl))** <br>
 * 주의 node.js 설치 필요 *
