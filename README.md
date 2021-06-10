@@ -7,7 +7,7 @@
 ## Usage
 > 주의 : 수업시간이 아니거나 잘못된 입력을 넣으면 자동으로 꺼집니다 !
 
-**소스 코드를 다운 받고 powershell에서 실행시켜주세요 for win 💨** <br>
+**소스 코드를 다운 받고 powershell에서 실행시켜주세요 for win(nodejs 필요) 💨** <br>
 windows powerShell 실행 -> cd "압축 푼 폴더 파일 위치" <br>
 ``` npm install ``` <br>
 ``` node process.js ```  <br>
